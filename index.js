@@ -106,6 +106,10 @@ class mochaPlugin {
                 usage: 'Run only matching tests',
                 shortcut: 'G',
               },
+              ui: {
+                usage: 'Mocha User Interface to use',
+                shortcut: 'u',
+              },
               live: {
                 usage: 'Run the Lambda function in AWS',
                 shortcut: 'l',
@@ -167,6 +171,7 @@ class mochaPlugin {
       const testFileMap = {};
       const mocha = new Mocha({
         timeout: this.options.t || this.options.timeout || 6000,
+        ui: myModule.options.ui || 'bdd'
       });
 
       const stage = this.options.stage;
